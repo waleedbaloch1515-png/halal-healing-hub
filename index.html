@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PEPPY OILS | Herbal Wellness Reimagined</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "on-surface": "#1b1c1a",
+                        "secondary": "#735c00",
+                        "secondary-fixed-dim": "#e9c349",
+                        "inverse-primary": "#b4cdb8",
+                        "tertiary-fixed-dim": "#e7bcbf",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#30312f",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#b4cdb8",
+                        "on-secondary-fixed": "#241a00",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#434843",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fbf9f6",
+                        "tertiary-fixed": "#ffd9dc",
+                        "outline": "#737973",
+                        "surface": "#fbf9f6",
+                        "surface-tint": "#4d6453",
+                        "surface-container-low": "#f5f3f0",
+                        "surface-container-high": "#e9e8e5",
+                        "on-secondary-fixed-variant": "#574500",
+                        "primary": "#061b0e",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dbdad7",
+                        "inverse-on-surface": "#f2f1ee",
+                        "surface-container": "#efeeeb",
+                        "secondary-container": "#fed65b",
+                        "on-tertiary-fixed-variant": "#5d3f42",
+                        "background": "#fbf9f6",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#b0898c",
+                        "tertiary-container": "#3f2427",
+                        "on-primary-fixed-variant": "#364c3c",
+                        "surface-container-highest": "#e3e2e0",
+                        "tertiary": "#271013",
+                        "on-secondary-container": "#745c00",
+                        "on-tertiary-fixed": "#2d1417",
+                        "on-background": "#1b1c1a",
+                        "primary-container": "#1b3022",
+                        "outline-variant": "#c3c8c1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#0b2013",
+                        "on-primary-container": "#819986",
+                        "primary-fixed": "#d0e9d4",
+                        "secondary-fixed": "#ffe088",
+                        "surface-variant": "#e3e2e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px",
+                        "margin-desktop": "60px",
+                        "section-gap": "120px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Montserrat"],
+                        "body-md": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "label-sm": ["Montserrat"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(27, 48, 34, 0.04);
+        }
+        .dark .glass-card {
+            background: rgba(48, 49, 47, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .oil-particle {
+            position: absolute;
+            pointer-events: none;
+            background: radial-gradient(circle, #fed65b 0%, rgba(254, 214, 91, 0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .floating-leaf {
+            animation: float 6s ease-in-out infinite;
+        }
+        .hero-float {
+            animation: hero-float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        @keyframes hero-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .heading-reveal {
+            opacity: 0;
+            letter-spacing: 10px;
+            transition: opacity 1s ease, letter-spacing 1s ease;
+        }
+        .heading-reveal.active {
+            opacity: 1;
+            letter-spacing: 2px;
+        }
+
+        .cursor-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(254,214,91,0.15) 0%, rgba(254,214,91,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out;
+        }
+
+        .product-image {
+            transition: transform 0.6s ease;
+            transform-style: preserve-3d;
+        }
+        .product-image:hover {
+            transform: rotateY(12deg) rotateX(6deg) scale(1.04);
+        }
+
+        .card:nth-child(1) { transition-delay: 0.1s; }
+        .card:nth-child(2) { transition-delay: 0.2s; }
+        .card:nth-child(3) { transition-delay: 0.3s; }
+        .card:nth-child(4) { transition-delay: 0.4s; }
+        .card:nth-child(5) { transition-delay: 0.5s; }
+        .card:nth-child(6) { transition-delay: 0.6s; }
+        .card:nth-child(7) { transition-delay: 0.7s; }
+        .card:nth-child(8) { transition-delay: 0.8s; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<div class="cursor-glow" id="cursor-glow" style="left: 1270px; top: 4341px;"></div>
+<div class="fixed top-0 left-0 w-full h-[4px] z-[60] bg-surface-variant">
+<div class="h-full bg-secondary-container transition-all duration-150 ease-out w-0" id="progress-bar"></div>
+</div>
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/60 dark:bg-inverse-surface/60 backdrop-blur-xl border-b border-primary/5 dark:border-white/10 shadow-sm mt-[4px]">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop py-4">
+<a class="text-headline-md font-headline-md font-bold tracking-tight text-primary dark:text-inverse-primary" href="#">Halal Healing Hub</a>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-label-md font-label-md text-primary dark:text-secondary-fixed-dim border-b-2 border-primary dark:border-secondary-fixed-dim pb-1" href="#shop">Shop</a>
+<a class="text-label-md font-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#benefits">Benefits</a>
+<a class="text-label-md font-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#usage">Usage</a>
+<a class="text-label-md font-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors duration-300" href="#about">Heritage</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-2xl hover:scale-110 transition-transform" id="theme-toggle">🌙</button>
+<button class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant hover:opacity-80 transition-opacity">shopping_bag</button>
+<a href="https://script.google.com/macros/s/AKfycbwtygZG_qpXgDTHTKtzmugjH9c7GoiGJbftpsPjIppRz_DdZlZBjhXPdm-C7zQoOWJ4uw/exec"><button class="bg-primary text-on-primary px-6 py-2 rounded-full text-label-md font-label-md hover:opacity-80 transition-opacity active:scale-95 duration-200">Order Now</button></a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-8">
+<div class="absolute inset-0 bg-[#f5f5dc] dark:bg-[#1b1c1a] -z-20"></div>
+<div class="absolute inset-0 -z-10 overflow-hidden" id="oil-particles"><div class="oil-particle" style="width: 5.44822px; height: 5.44822px; left: 99.22%; top: 13.427%; opacity: 0.260576;"></div><div class="oil-particle" style="width: 14.8988px; height: 14.8988px; left: 76.8493%; top: 24.5632%; opacity: 0.391246;"></div><div class="oil-particle" style="width: 19.0052px; height: 19.0052px; left: 92.6782%; top: 48.7689%; opacity: 0.0429832;"></div><div class="oil-particle" style="width: 22.5328px; height: 22.5328px; left: 55.8108%; top: 91.9444%; opacity: 0.174074;"></div><div class="oil-particle" style="width: 14.1576px; height: 14.1576px; left: 59.8557%; top: 44.4498%; opacity: 0.0143885;"></div><div class="oil-particle" style="width: 17.6243px; height: 17.6243px; left: 91.1924%; top: 86.4064%; opacity: 0.125705;"></div><div class="oil-particle" style="width: 23.0853px; height: 23.0853px; left: 85.104%; top: 73.1034%; opacity: 0.339111;"></div><div class="oil-particle" style="width: 5.00565px; height: 5.00565px; left: 48.5475%; top: 7.66957%; opacity: 0.340591;"></div><div class="oil-particle" style="width: 22.4173px; height: 22.4173px; left: 94.4473%; top: 6.85134%; opacity: 0.127171;"></div><div class="oil-particle" style="width: 24.3891px; height: 24.3891px; left: 82.2785%; top: 12.8674%; opacity: 0.183722;"></div><div class="oil-particle" style="width: 21.5758px; height: 21.5758px; left: 96.1784%; top: 0.227413%; opacity: 0.120002;"></div><div class="oil-particle" style="width: 13.3465px; height: 13.3465px; left: 19.3291%; top: 6.53055%; opacity: 0.211289;"></div><div class="oil-particle" style="width: 22.8365px; height: 22.8365px; left: 67.8005%; top: 49.3643%; opacity: 0.00826927;"></div><div class="oil-particle" style="width: 19.5231px; height: 19.5231px; left: 72.9067%; top: 73.4999%; opacity: 0.181511;"></div><div class="oil-particle" style="width: 19.7256px; height: 19.7256px; left: 21.053%; top: 45.6949%; opacity: 0.240883;"></div><div class="oil-particle" style="width: 16.1017px; height: 16.1017px; left: 25.4148%; top: 99.9751%; opacity: 0.320158;"></div><div class="oil-particle" style="width: 11.0868px; height: 11.0868px; left: 53.4023%; top: 5.95085%; opacity: 0.122264;"></div><div class="oil-particle" style="width: 14.0486px; height: 14.0486px; left: 88.6838%; top: 60.4096%; opacity: 0.228253;"></div><div class="oil-particle" style="width: 18.183px; height: 18.183px; left: 82.2101%; top: 64.2523%; opacity: 0.129979;"></div><div class="oil-particle" style="width: 18.4354px; height: 18.4354px; left: 13.1434%; top: 87.5324%; opacity: 0.153194;"></div><div class="oil-particle" style="width: 5.35016px; height: 5.35016px; left: 91.0831%; top: 80.643%; opacity: 0.270668;"></div><div class="oil-particle" style="width: 23.498px; height: 23.498px; left: 70.772%; top: 2.35983%; opacity: 0.366561;"></div><div class="oil-particle" style="width: 15.7127px; height: 15.7127px; left: 9.0602%; top: 6.08604%; opacity: 0.165696;"></div><div class="oil-particle" style="width: 21.9019px; height: 21.9019px; left: 53.0243%; top: 97.2425%; opacity: 0.377467;"></div><div class="oil-particle" style="width: 13.4539px; height: 13.4539px; left: 4.10651%; top: 97.6497%; opacity: 0.0528547;"></div><div class="oil-particle" style="width: 18.4872px; height: 18.4872px; left: 99.5997%; top: 44.0874%; opacity: 0.352755;"></div><div class="oil-particle" style="width: 7.75845px; height: 7.75845px; left: 14.3821%; top: 41.3727%; opacity: 0.366087;"></div><div class="oil-particle" style="width: 7.21496px; height: 7.21496px; left: 34.5208%; top: 83.6263%; opacity: 0.28968;"></div><div class="oil-particle" style="width: 9.93334px; height: 9.93334px; left: 78.6136%; top: 78.9277%; opacity: 0.177116;"></div><div class="oil-particle" style="width: 18.3223px; height: 18.3223px; left: 40.0644%; top: 57.1815%; opacity: 0.00342787;"></div><div class="oil-particle" style="width: 5.4917px; height: 5.4917px; left: 86.0909%; top: 2.37559%; opacity: 0.185126;"></div><div class="oil-particle" style="width: 11.7929px; height: 11.7929px; left: 99.4549%; top: 24.702%; opacity: 0.302912;"></div><div class="oil-particle" style="width: 16.1197px; height: 16.1197px; left: 8.66234%; top: 38.6353%; opacity: 0.338347;"></div><div class="oil-particle" style="width: 12.5252px; height: 12.5252px; left: 72.5586%; top: 79.5608%; opacity: 0.23534;"></div><div class="oil-particle" style="width: 15.6226px; height: 15.6226px; left: 28.213%; top: 10.8086%; opacity: 0.278098;"></div><div class="oil-particle" style="width: 19.606px; height: 19.606px; left: 52.1571%; top: 80.987%; opacity: 0.190887;"></div><div class="oil-particle" style="width: 13.9031px; height: 13.9031px; left: 40.198%; top: 43.4795%; opacity: 0.217526;"></div><div class="oil-particle" style="width: 15.5351px; height: 15.5351px; left: 39.7711%; top: 9.23011%; opacity: 0.0823794;"></div><div class="oil-particle" style="width: 14.7769px; height: 14.7769px; left: 9.33366%; top: 11.4596%; opacity: 0.221116;"></div><div class="oil-particle" style="width: 7.76537px; height: 7.76537px; left: 99.0487%; top: 23.1575%; opacity: 0.352182;"></div><div class="oil-particle" style="width: 24.6223px; height: 24.6223px; left: 84.623%; top: 35.9182%; opacity: 0.244448;"></div><div class="oil-particle" style="width: 15.2393px; height: 15.2393px; left: 20.3058%; top: 52.0928%; opacity: 0.0216269;"></div><div class="oil-particle" style="width: 12.3454px; height: 12.3454px; left: 41.6861%; top: 16.2548%; opacity: 0.0631844;"></div><div class="oil-particle" style="width: 16.0826px; height: 16.0826px; left: 97.6076%; top: 32.8213%; opacity: 0.366609;"></div><div class="oil-particle" style="width: 8.06084px; height: 8.06084px; left: 64.7033%; top: 91.5825%; opacity: 0.146881;"></div><div class="oil-particle" style="width: 21.1891px; height: 21.1891px; left: 48.0259%; top: 75.4564%; opacity: 0.358165;"></div><div class="oil-particle" style="width: 15.6358px; height: 15.6358px; left: 22.4077%; top: 43.9466%; opacity: 0.161503;"></div><div class="oil-particle" style="width: 17.9798px; height: 17.9798px; left: 78.7234%; top: 9.72853%; opacity: 0.0666945;"></div><div class="oil-particle" style="width: 18.8371px; height: 18.8371px; left: 20.1186%; top: 12.0814%; opacity: 0.333631;"></div><div class="oil-particle" style="width: 9.42296px; height: 9.42296px; left: 64.6826%; top: 59.6893%; opacity: 0.112784;"></div><div class="oil-particle" style="width: 20.3176px; height: 20.3176px; left: 60.5205%; top: 38.2112%; opacity: 0.162914;"></div><div class="oil-particle" style="width: 24.8603px; height: 24.8603px; left: 89.6755%; top: 40.3475%; opacity: 0.0061475;"></div><div class="oil-particle" style="width: 13.9792px; height: 13.9792px; left: 91.9498%; top: 0.557392%; opacity: 0.0733566;"></div><div class="oil-particle" style="width: 23.5577px; height: 23.5577px; left: 17.4187%; top: 35.7355%; opacity: 0.381384;"></div><div class="oil-particle" style="width: 12.4344px; height: 12.4344px; left: 98.5838%; top: 39.8086%; opacity: 0.0855425;"></div><div class="oil-particle" style="width: 18.051px; height: 18.051px; left: 39.4748%; top: 58.0932%; opacity: 0.0985307;"></div><div class="oil-particle" style="width: 24.6443px; height: 24.6443px; left: 90.1364%; top: 29.3633%; opacity: 0.179868;"></div><div class="oil-particle" style="width: 20.1632px; height: 20.1632px; left: 78.2119%; top: 63.9468%; opacity: 0.200589;"></div><div class="oil-particle" style="width: 11.7815px; height: 11.7815px; left: 41.1745%; top: 12.3361%; opacity: 0.310688;"></div><div class="oil-particle" style="width: 9.29597px; height: 9.29597px; left: 51.8482%; top: 88.287%; opacity: 0.0504767;"></div><div class="oil-particle" style="width: 9.88246px; height: 9.88246px; left: 1.147%; top: 31.0224%; opacity: 0.0195542;"></div><div class="oil-particle" style="width: 21.3693px; height: 21.3693px; left: 37.0095%; top: 91.9446%; opacity: 0.359182;"></div><div class="oil-particle" style="width: 15.5975px; height: 15.5975px; left: 21.2005%; top: 89.4327%; opacity: 0.138856;"></div><div class="oil-particle" style="width: 22.8052px; height: 22.8052px; left: 20.8118%; top: 55.0054%; opacity: 0.204796;"></div><div class="oil-particle" style="width: 18.4045px; height: 18.4045px; left: 90.4997%; top: 48.8607%; opacity: 0.374988;"></div><div class="oil-particle" style="width: 20.5813px; height: 20.5813px; left: 34.7927%; top: 25.2113%; opacity: 0.314252;"></div><div class="oil-particle" style="width: 12.7595px; height: 12.7595px; left: 13.323%; top: 18.7755%; opacity: 0.323411;"></div><div class="oil-particle" style="width: 8.92907px; height: 8.92907px; left: 75.2042%; top: 69.6126%; opacity: 0.0814082;"></div><div class="oil-particle" style="width: 10.6363px; height: 10.6363px; left: 12.4735%; top: 83.9466%; opacity: 0.209521;"></div><div class="oil-particle" style="width: 16.5255px; height: 16.5255px; left: 20.2414%; top: 8.50899%; opacity: 0.278033;"></div><div class="oil-particle" style="width: 9.00487px; height: 9.00487px; left: 41.1107%; top: 56.8063%; opacity: 0.0712462;"></div><div class="oil-particle" style="width: 24.7743px; height: 24.7743px; left: 84.6819%; top: 58.0122%; opacity: 0.0318098;"></div><div class="oil-particle" style="width: 19.9013px; height: 19.9013px; left: 50.9497%; top: 94.4591%; opacity: 0.35685;"></div><div class="oil-particle" style="width: 6.8013px; height: 6.8013px; left: 12.9352%; top: 15.5578%; opacity: 0.395089;"></div><div class="oil-particle" style="width: 15.3129px; height: 15.3129px; left: 94.3909%; top: 41.5601%; opacity: 0.165406;"></div><div class="oil-particle" style="width: 8.03423px; height: 8.03423px; left: 94.6425%; top: 65.4918%; opacity: 0.227522;"></div><div class="oil-particle" style="width: 12.1721px; height: 12.1721px; left: 66.8412%; top: 60.2236%; opacity: 0.195835;"></div><div class="oil-particle" style="width: 12.2193px; height: 12.2193px; left: 97.0543%; top: 6.56426%; opacity: 0.0836194;"></div><div class="oil-particle" style="width: 16.2287px; height: 16.2287px; left: 80.4459%; top: 97.0007%; opacity: 0.0437684;"></div><div class="oil-particle" style="width: 20.874px; height: 20.874px; left: 20.3588%; top: 0.640734%; opacity: 0.38366;"></div><div class="oil-particle" style="width: 24.2907px; height: 24.2907px; left: 20.5743%; top: 80.3778%; opacity: 0.150276;"></div><div class="oil-particle" style="width: 8.33523px; height: 8.33523px; left: 89.0226%; top: 4.05558%; opacity: 0.180559;"></div><div class="oil-particle" style="width: 16.6022px; height: 16.6022px; left: 29.9793%; top: 62.3645%; opacity: 0.107391;"></div><div class="oil-particle" style="width: 12.8171px; height: 12.8171px; left: 71.776%; top: 12.1855%; opacity: 0.322676;"></div><div class="oil-particle" style="width: 23.3781px; height: 23.3781px; left: 36.5533%; top: 30.086%; opacity: 0.256231;"></div><div class="oil-particle" style="width: 14.7339px; height: 14.7339px; left: 16.5922%; top: 48.6028%; opacity: 0.295745;"></div><div class="oil-particle" style="width: 6.17045px; height: 6.17045px; left: 52.6942%; top: 91.116%; opacity: 0.0322898;"></div><div class="oil-particle" style="width: 24.3085px; height: 24.3085px; left: 80.3919%; top: 40.3487%; opacity: 0.255667;"></div><div class="oil-particle" style="width: 22.0935px; height: 22.0935px; left: 53.2143%; top: 75.0789%; opacity: 0.130239;"></div><div class="oil-particle" style="width: 19.9989px; height: 19.9989px; left: 20.6902%; top: 32.3775%; opacity: 0.033623;"></div><div class="oil-particle" style="width: 19.59px; height: 19.59px; left: 86.1838%; top: 50.1446%; opacity: 0.206824;"></div><div class="oil-particle" style="width: 10.6558px; height: 10.6558px; left: 91.0251%; top: 42.1685%; opacity: 0.0595048;"></div><div class="oil-particle" style="width: 17.8779px; height: 17.8779px; left: 25.9067%; top: 84.9583%; opacity: 0.161653;"></div><div class="oil-particle" style="width: 20.4449px; height: 20.4449px; left: 87.2104%; top: 61.1207%; opacity: 0.077254;"></div><div class="oil-particle" style="width: 21.0175px; height: 21.0175px; left: 10.1697%; top: 59.2562%; opacity: 0.194983;"></div><div class="oil-particle" style="width: 24.1006px; height: 24.1006px; left: 31.0644%; top: 14.273%; opacity: 0.119275;"></div><div class="oil-particle" style="width: 10.2977px; height: 10.2977px; left: 42.4126%; top: 22.7998%; opacity: 0.39487;"></div><div class="oil-particle" style="width: 20.5145px; height: 20.5145px; left: 60.5938%; top: 25.4391%; opacity: 0.161716;"></div><div class="oil-particle" style="width: 21.3803px; height: 21.3803px; left: 7.4371%; top: 90.6442%; opacity: 0.00518097;"></div><div class="oil-particle" style="width: 10.1349px; height: 10.1349px; left: 7.70485%; top: 62.1047%; opacity: 0.239807;"></div><div class="oil-particle" style="width: 13.3811px; height: 13.3811px; left: 5.50187%; top: 64.5416%; opacity: 0.128762;"></div><div class="oil-particle" style="width: 17.6422px; height: 17.6422px; left: 22.8156%; top: 20.6678%; opacity: 0.275495;"></div><div class="oil-particle" style="width: 7.39333px; height: 7.39333px; left: 34.8439%; top: 3.82509%; opacity: 0.0279943;"></div><div class="oil-particle" style="width: 16.3654px; height: 16.3654px; left: 40.0527%; top: 3.51035%; opacity: 0.106391;"></div><div class="oil-particle" style="width: 20.0181px; height: 20.0181px; left: 5.75712%; top: 19.04%; opacity: 0.208939;"></div><div class="oil-particle" style="width: 24.7697px; height: 24.7697px; left: 2.76672%; top: 10.0739%; opacity: 0.229151;"></div><div class="oil-particle" style="width: 11.7308px; height: 11.7308px; left: 21.5561%; top: 27.757%; opacity: 0.225096;"></div><div class="oil-particle" style="width: 6.01959px; height: 6.01959px; left: 94.2564%; top: 39.3698%; opacity: 0.240408;"></div><div class="oil-particle" style="width: 11.093px; height: 11.093px; left: 72.9639%; top: 22.395%; opacity: 0.0723665;"></div><div class="oil-particle" style="width: 24.8537px; height: 24.8537px; left: 72.5988%; top: 1.18298%; opacity: 0.162033;"></div><div class="oil-particle" style="width: 17.0607px; height: 17.0607px; left: 55.8469%; top: 92.4647%; opacity: 0.120496;"></div><div class="oil-particle" style="width: 23.4912px; height: 23.4912px; left: 8.6203%; top: 2.15923%; opacity: 0.118719;"></div><div class="oil-particle" style="width: 14.1464px; height: 14.1464px; left: 77.3732%; top: 49.1108%; opacity: 0.165006;"></div><div class="oil-particle" style="width: 6.07544px; height: 6.07544px; left: 61.1083%; top: 56.004%; opacity: 0.312284;"></div><div class="oil-particle" style="width: 23.4478px; height: 23.4478px; left: 25.1021%; top: 65.2842%; opacity: 0.0108433;"></div><div class="oil-particle" style="width: 20.4201px; height: 20.4201px; left: 6.08281%; top: 62.9601%; opacity: 0.226654;"></div><div class="oil-particle" style="width: 21.3694px; height: 21.3694px; left: 15.864%; top: 10.3675%; opacity: 0.291593;"></div><div class="oil-particle" style="width: 15.0843px; height: 15.0843px; left: 78.4683%; top: 19.3173%; opacity: 0.187795;"></div><div class="oil-particle" style="width: 12.0107px; height: 12.0107px; left: 8.48572%; top: 72.9405%; opacity: 0.339515;"></div><div class="oil-particle" style="width: 9.15019px; height: 9.15019px; left: 69.2721%; top: 83.5994%; opacity: 0.197005;"></div><div class="oil-particle" style="width: 16.2017px; height: 16.2017px; left: 7.91177%; top: 5.98948%; opacity: 0.108411;"></div><div class="oil-particle" style="width: 9.15458px; height: 9.15458px; left: 37.9872%; top: 34.8668%; opacity: 0.121746;"></div><div class="oil-particle" style="width: 17.067px; height: 17.067px; left: 45.5597%; top: 57.0267%; opacity: 0.153757;"></div><div class="oil-particle" style="width: 16.2494px; height: 16.2494px; left: 15.7869%; top: 35.6302%; opacity: 0.0123339;"></div><div class="oil-particle" style="width: 9.98956px; height: 9.98956px; left: 64.5369%; top: 39.8108%; opacity: 0.338401;"></div><div class="oil-particle" style="width: 15.2265px; height: 15.2265px; left: 86.2919%; top: 51.0894%; opacity: 0.0138528;"></div><div class="oil-particle" style="width: 15.8046px; height: 15.8046px; left: 9.98361%; top: 58.0104%; opacity: 0.090773;"></div><div class="oil-particle" style="width: 19.6749px; height: 19.6749px; left: 46.3855%; top: 74.3067%; opacity: 0.0283201;"></div><div class="oil-particle" style="width: 8.34565px; height: 8.34565px; left: 75.3906%; top: 93.2176%; opacity: 0.0932263;"></div><div class="oil-particle" style="width: 23.719px; height: 23.719px; left: 32.6675%; top: 59.5457%; opacity: 0.106745;"></div><div class="oil-particle" style="width: 9.38915px; height: 9.38915px; left: 10.2045%; top: 47.1039%; opacity: 0.0443326;"></div><div class="oil-particle" style="width: 7.2892px; height: 7.2892px; left: 18.3632%; top: 50.382%; opacity: 0.0188904;"></div><div class="oil-particle" style="width: 17.4484px; height: 17.4484px; left: 85.4323%; top: 95.3835%; opacity: 0.356564;"></div><div class="oil-particle" style="width: 9.62027px; height: 9.62027px; left: 52.3731%; top: 64.0196%; opacity: 0.0643695;"></div><div class="oil-particle" style="width: 5.40997px; height: 5.40997px; left: 23.6559%; top: 26.4204%; opacity: 0.27181;"></div><div class="oil-particle" style="width: 23.5608px; height: 23.5608px; left: 74.9629%; top: 47.6808%; opacity: 0.156824;"></div><div class="oil-particle" style="width: 6.0872px; height: 6.0872px; left: 37.8032%; top: 39.9256%; opacity: 0.263479;"></div><div class="oil-particle" style="width: 15.2295px; height: 15.2295px; left: 36.4456%; top: 59.6517%; opacity: 0.307732;"></div><div class="oil-particle" style="width: 12.7876px; height: 12.7876px; left: 51.3639%; top: 17.5823%; opacity: 0.387095;"></div><div class="oil-particle" style="width: 21.2545px; height: 21.2545px; left: 72.4611%; top: 3.31944%; opacity: 0.167584;"></div><div class="oil-particle" style="width: 19.6787px; height: 19.6787px; left: 36.5772%; top: 22.8293%; opacity: 0.185408;"></div><div class="oil-particle" style="width: 14.2733px; height: 14.2733px; left: 16.2619%; top: 96.3222%; opacity: 0.225485;"></div><div class="oil-particle" style="width: 14.5019px; height: 14.5019px; left: 58.6748%; top: 67.991%; opacity: 0.126397;"></div><div class="oil-particle" style="width: 19.2225px; height: 19.2225px; left: 10.3333%; top: 20.073%; opacity: 0.266819;"></div><div class="oil-particle" style="width: 12.9235px; height: 12.9235px; left: 38.4346%; top: 66.4096%; opacity: 0.14588;"></div><div class="oil-particle" style="width: 24.3161px; height: 24.3161px; left: 95.0495%; top: 43.6324%; opacity: 0.366191;"></div><div class="oil-particle" style="width: 8.43173px; height: 8.43173px; left: 78.7489%; top: 52.9523%; opacity: 0.341788;"></div><div class="oil-particle" style="width: 15.7533px; height: 15.7533px; left: 33.9538%; top: 51.7981%; opacity: 0.377041;"></div><div class="oil-particle" style="width: 17.2523px; height: 17.2523px; left: 64.7518%; top: 39.1958%; opacity: 0.203823;"></div><div class="oil-particle" style="width: 23.8238px; height: 23.8238px; left: 8.71956%; top: 82.2327%; opacity: 0.0237328;"></div><div class="oil-particle" style="width: 8.76308px; height: 8.76308px; left: 89.5859%; top: 13.3497%; opacity: 0.266011;"></div><div class="oil-particle" style="width: 18.981px; height: 18.981px; left: 42.5951%; top: 82.2765%; opacity: 0.383843;"></div><div class="oil-particle" style="width: 18.6454px; height: 18.6454px; left: 80.375%; top: 50.445%; opacity: 0.269913;"></div><div class="oil-particle" style="width: 12.7882px; height: 12.7882px; left: 19.1152%; top: 95.068%; opacity: 0.328312;"></div><div class="oil-particle" style="width: 23.5922px; height: 23.5922px; left: 36.9729%; top: 15.8151%; opacity: 0.383022;"></div><div class="oil-particle" style="width: 22.5611px; height: 22.5611px; left: 13.163%; top: 41.1296%; opacity: 0.352663;"></div><div class="oil-particle" style="width: 20.0292px; height: 20.0292px; left: 83.7319%; top: 61.0251%; opacity: 0.18987;"></div><div class="oil-particle" style="width: 22.0491px; height: 22.0491px; left: 51.1264%; top: 49.6731%; opacity: 0.129712;"></div><div class="oil-particle" style="width: 6.72714px; height: 6.72714px; left: 10.7429%; top: 33.6674%; opacity: 0.338295;"></div><div class="oil-particle" style="width: 19.8284px; height: 19.8284px; left: 5.2891%; top: 36.7947%; opacity: 0.184721;"></div><div class="oil-particle" style="width: 12.9065px; height: 12.9065px; left: 11.0511%; top: 45.0096%; opacity: 0.0705213;"></div><div class="oil-particle" style="width: 14.4597px; height: 14.4597px; left: 80.2684%; top: 18.2438%; opacity: 0.206136;"></div><div class="oil-particle" style="width: 6.08658px; height: 6.08658px; left: 33.4527%; top: 20.1093%; opacity: 0.132335;"></div><div class="oil-particle" style="width: 19.9358px; height: 19.9358px; left: 22.2187%; top: 91.1432%; opacity: 0.389979;"></div><div class="oil-particle" style="width: 13.7133px; height: 13.7133px; left: 44.9895%; top: 39.6987%; opacity: 0.0470902;"></div><div class="oil-particle" style="width: 16.4771px; height: 16.4771px; left: 5.11345%; top: 15.6568%; opacity: 0.234571;"></div><div class="oil-particle" style="width: 14.2647px; height: 14.2647px; left: 18.3269%; top: 12.5829%; opacity: 0.0663385;"></div><div class="oil-particle" style="width: 11.7332px; height: 11.7332px; left: 20.2886%; top: 85.1316%; opacity: 0.384668;"></div><div class="oil-particle" style="width: 12.1623px; height: 12.1623px; left: 55.9976%; top: 70.8558%; opacity: 0.213065;"></div><div class="oil-particle" style="width: 19.2286px; height: 19.2286px; left: 85.763%; top: 48.5519%; opacity: 0.0221873;"></div><div class="oil-particle" style="width: 24.6192px; height: 24.6192px; left: 90.1433%; top: 66.7474%; opacity: 0.321628;"></div><div class="oil-particle" style="width: 17.2947px; height: 17.2947px; left: 12.4242%; top: 85.7163%; opacity: 0.103229;"></div><div class="oil-particle" style="width: 17.6197px; height: 17.6197px; left: 14.8983%; top: 9.09554%; opacity: 0.179333;"></div><div class="oil-particle" style="width: 9.7322px; height: 9.7322px; left: 43.2912%; top: 58.8803%; opacity: 0.341366;"></div><div class="oil-particle" style="width: 9.44246px; height: 9.44246px; left: 55.0552%; top: 0.47837%; opacity: 0.234198;"></div><div class="oil-particle" style="width: 23.7304px; height: 23.7304px; left: 4.13148%; top: 97.063%; opacity: 0.270897;"></div><div class="oil-particle" style="width: 15.4387px; height: 15.4387px; left: 90.1532%; top: 58.288%; opacity: 0.358978;"></div><div class="oil-particle" style="width: 9.72773px; height: 9.72773px; left: 95.6946%; top: 38.0555%; opacity: 0.200502;"></div><div class="oil-particle" style="width: 5.45667px; height: 5.45667px; left: 60.4106%; top: 66.9494%; opacity: 0.0582056;"></div><div class="oil-particle" style="width: 7.86084px; height: 7.86084px; left: 77.208%; top: 54.3496%; opacity: 0.0383979;"></div></div>
+<div class="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-yellow-200/30 blur-3xl rounded-full -z-10"></div>
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="text-center lg:text-left z-10">
+<h1 class="font-display-lg text-display-lg text-primary dark:text-inverse-primary mb-4 leading-tight heading-reveal active">Halal Healing Hub</h1>
+<p class="font-headline-md text-headline-md text-secondary dark:text-secondary-fixed-dim mb-2 italic">
+                Relax • Revive • Rejuvenate
+            </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant dark:text-surface-variant mb-10 tracking-[0.2em]">
+                FACE • HAIR • BODY
+            </p><div class="mb-8 inline-flex items-center gap-2 bg-secondary/10 dark:bg-secondary-fixed-dim/20 px-4 py-1.5 rounded-full border border-secondary/20"><span class="material-symbols-outlined text-secondary text-lg">verified</span><span class="text-label-sm font-bold text-secondary uppercase tracking-wider">Now with enhanced Digestive Support</span></div>
+<div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+<a href="https://script.google.com/macros/s/AKfycbwtygZG_qpXgDTHTKtzmugjH9c7GoiGJbftpsPjIppRz_DdZlZBjhXPdm-C7zQoOWJ4uw/exec"><button class="bg-secondary-container text-on-secondary-container px-10 py-4 rounded-full font-label-md text-label-md hover:opacity-90 transition-all shadow-lg active:scale-95">
+                    Order Now
+                </button></a>
+</div>
+<div class="mt-8 inline-block bg-white/60 dark:bg-inverse-surface/60 backdrop-blur-sm px-6 py-3 rounded-full border border-primary/10">
+<p class="text-body-md text-primary dark:text-inverse-primary font-medium">★★★★★ Back pain reduced in 7 days. — Ahmed R.</p>
+</div>
+</div>
+<div class="relative flex justify-center">
+<div class="floating-leaf absolute top-0 right-0 opacity-20 -z-10">
+<span class="material-symbols-outlined text-[120px] text-primary">eco</span>
+</div>
+<div class="relative z-20 group perspective-[1000px]">
+<img alt="PEPPY OILS Premium Combo Pack" class="w-full max-w-[500px] drop-shadow-2xl hero-float product-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfItDOBo8ODoJP8MePDrU3p2JphUFBuG6xydtSLc5H0jA5_LUS5aBjRvt1v7Fu_Gp1AaG2dhduAx504KqnrdGd5v1lqjBUpx-e7OmdYSK1zr8VFO35damjT7aRa_3CkH5nP1W13mEroGKaIghAmrTMaOd90fv3p8zcXGINfFqgoQjfVQ18jF6yfLopqphi4xyUH6L_Xpa8J7gzQd2aV1Ggku5A4_Kgo94t4AKzUus0cZFdFv9Am5BDcY-vCS36IpsZfox5w89hilc"/>
+<div class="absolute -bottom-10 -right-10 bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-md p-6 rounded-2xl border border-primary/10 shadow-xl max-w-[220px]">
+<p class="text-label-sm font-label-sm text-secondary font-bold uppercase tracking-widest mb-1">100+ Year Heritage</p>
+<p class="text-body-md font-body-md text-on-surface">A Healthy Lifestyle Choice for Men &amp; Women</p>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Benefits Section -->
+<section class="relative py-12" id="benefits"><div class="max-w-container-max mx-auto px-margin-desktop"><div class="text-center mb-16 reveal active"><h2 class="font-headline-lg text-headline-lg text-primary dark:text-inverse-primary mb-4 heading-reveal active">The Multipurpose Miracle</h2><p class="text-body-lg text-on-surface-variant dark:text-surface-variant max-w-2xl mx-auto">Engineered to improve physical strength and reduce body discomfort across all the world.</p></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"><div class="glass-card p-8 rounded-[2rem] reveal group hover:-translate-y-2 transition-all card active"><span class="material-symbols-outlined text-4xl text-secondary mb-6 block group-hover:scale-110 transition-transform">personal_injury</span><h3 class="font-headline-md text-[22px] text-primary dark:text-inverse-primary mb-4">Joint &amp; Back Pain</h3><p class="text-body-md text-on-surface-variant dark:text-surface-variant">Deeply penetrates to soothe persistent back aches and joint stiffness.</p></div><div class="glass-card p-8 rounded-[2rem] reveal group hover:-translate-y-2 transition-all card active"><span class="material-symbols-outlined text-4xl text-secondary mb-6 block group-hover:scale-110 transition-transform">neurology</span><h3 class="font-headline-md text-[22px] text-primary dark:text-inverse-primary mb-4">Nerve &amp; Disc</h3><p class="text-body-md text-on-surface-variant dark:text-surface-variant">Supports recovery for nerve weakness and disc-related problems through targeted topical therapy.</p></div><div class="glass-card p-8 rounded-[2rem] reveal group hover:-translate-y-2 transition-all card active"><span class="material-symbols-outlined text-secondary mb-6 block group-hover:scale-110 transition-transform text-2xl">digestion</span><h3 class="font-headline-md text-[22px] text-primary dark:text-inverse-primary mb-4">Digest (Internal)</h3><p class="text-body-md text-on-surface-variant dark:text-surface-variant">Traditional internal application aids digestion and helps maintain optimal metabolic balance.</p></div><div class="glass-card p-8 rounded-[2rem] reveal group hover:-translate-y-2 transition-all card active"><span class="material-symbols-outlined text-4xl text-secondary mb-6 block group-hover:scale-110 transition-transform">bedtime</span><h3 class="font-headline-md text-[22px] text-primary dark:text-inverse-primary mb-4">Stress &amp; Sleep</h3><p class="text-body-md text-on-surface-variant dark:text-surface-variant">Calms the nervous system to reduce stress levels and promote deep, restorative sleep.</p></div><div class="glass-card p-8 rounded-[2rem] reveal group hover:-translate-y-2 transition-all card active"><span class="material-symbols-outlined text-4xl text-secondary mb-6 block group-hover:scale-110 transition-transform">accessibility_new</span><h3 class="font-headline-md text-[22px] text-primary dark:text-inverse-primary mb-4">Body Stiffness</h3><p class="text-body-md text-on-surface-variant dark:text-surface-variant">Quickly releases muscle tension and stiffness, restoring full range of motion.</p></div><div class="glass-card p-8 rounded-[2rem] reveal group hover:-translate-y-2 transition-all card active"><span class="material-symbols-outlined text-4xl text-secondary mb-6 block group-hover:scale-110 transition-transform">blood_pressure</span><h3 class="font-headline-md text-[22px] text-primary dark:text-inverse-primary mb-4">Varicose Veins</h3><p class="text-body-md text-on-surface-variant dark:text-surface-variant">Improves circulation and provides significant support for managing varicose vein symptoms.</p></div><div class="glass-card p-8 rounded-[2rem] reveal group hover:-translate-y-2 transition-all card active"><span class="material-symbols-outlined text-4xl text-secondary mb-6 block group-hover:scale-110 transition-transform">fitness_center</span><h3 class="font-headline-md text-[22px] text-primary dark:text-inverse-primary mb-4">Physical Strength</h3><p class="text-body-md text-on-surface-variant dark:text-surface-variant">Enhances overall physical vitality and reduces fatigue for both men and women.</p></div><div class="glass-card p-8 rounded-[2rem] reveal group hover:-translate-y-2 transition-all card active"><span class="material-symbols-outlined text-4xl text-secondary mb-6 block group-hover:scale-110 transition-transform">spa</span><h3 class="font-headline-md text-[22px] text-primary dark:text-inverse-primary mb-4">Hair &amp; Skin</h3><p class="text-body-md text-on-surface-variant dark:text-surface-variant">Strengthens hair roots and restores a natural, radiant glow to the complexion.</p></div></div></div><div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-yellow-200/20 blur-3xl rounded-full -z-10"></div></section>
+<!-- Usage Section -->
+<section class="bg-surface-container-low dark:bg-inverse-surface/30 py-12" id="usage">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="reveal active">
+<h2 class="font-headline-lg text-headline-lg text-primary dark:text-inverse-primary mb-8 heading-reveal active">How to Use</h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary">back_hand</span>
+</div>
+<div>
+<h4 class="font-bold text-lg text-primary dark:text-inverse-primary mb-2">External Application</h4>
+<p class="text-body-md text-on-surface-variant dark:text-surface-variant">Apply a small amount to the affected area (muscles, joints, or scalp). Use gentle, circular massage motions until fully absorbed. Best applied before sleep or after a warm bath.</p>
+</div>
+</div>
+<div class="flex gap-6 bg-secondary/5 p-4 rounded-2xl border border-secondary/10">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary">liquor</span>
+</div>
+<div>
+<h4 class="font-bold text-lg text-primary dark:text-inverse-primary mb-2">Internal Usage</h4>
+<p class="text-body-md text-on-surface-variant dark:text-surface-variant">Supports healthy digestion and energy boost when consumed as directed. Helps maintain optimal metabolic balance and reduces body discomfort from within. Our cold-pressed miracle oil is 100% pure and safe for dietary use.</p>
+</div>
+</div>
+</div>
+<div class="mt-12 p-6 bg-white dark:bg-surface-container rounded-2xl border-l-4 border-secondary shadow-sm">
+<p class="text-body-md italic text-on-surface-variant">"Consistent daily use is key to unlocking the full 100-year-old benefits of our traditional formula."</p>
+</div>
+</div>
+<div class="relative reveal order-first lg:order-last perspective-[1000px] active">
+<img alt="Peppy Oils Drinking Oil" class="w-full rounded-[3rem] shadow-2xl product-image" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvehzrHvP9S5nnp9GOm0bHYMbn7-IcSx361C5iIN9sCfHtW45zi2u7FSeCaPuqAn1b9KgNUy77KH3lVoNB_aIy5lM6BywqXxIyk-JWyVN4hp-bQsLWLg490v0Op1aLp5eaE2gTfm3u4XVRdU7SZZ3XlymkrwVjsa58ZEGNRPw8CHxBij0sbznA-alN-VmsvLcb4TnbuYGFfLEW7pAWykOTLoS4-eoHLZtpqhrsgRkYmBF6dM8XY5tweN1ifNvhHUlgTzVTsvu4MjQ"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Packaging Section -->
+<section class="py-section-gap overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="reveal perspective-[1000px] active">
+<img alt="Sustainable Packaging" class="w-full rounded-[4rem] z-10 relative product-image" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA24j4KJZJibNnBMKVpWGdXbsERhAv_0WmmLhjZ4qVR-8JXDS40YMD7G_BmHZFOBSBH49_SIKJikmUjAPUCz94OoKdQMx8xD54WF2pWv7ecUWIHcHdUiJ5uis0QApf8x-TWBTI5L4Cyl5BUdetE1-n0ea9soV41bi9Rw0V_t8iiOkaMye3lkr-Lcp2ig81ItIfO0gaxCyvElhI_057XO7V14vc8oafx4IuxGgLKiH6urmHOWHndsBQrLieW9afdXNjfv8gJ6t-MbTg"/>
+</div>
+<div class="reveal active">
+<span class="text-label-md font-bold uppercase tracking-[0.3em] text-secondary mb-6 block">Premium Craftsmanship</span>
+<h2 class="font-headline-lg text-headline-lg text-primary dark:text-inverse-primary mb-8 heading-reveal active">Eco-Friendly Excellence</h2>
+<p class="text-body-lg text-on-surface-variant dark:text-surface-variant mb-6 leading-relaxed">
+                    Our packaging is more than just a box; it is a reflection of the herbal purity within. Using **Premium Eco-Friendly Crafting**, we utilize sustainable, recycled materials that provide a protective sanctuary for our 100% natural ingredients. 
+                </p>
+<p class="text-body-lg text-on-surface-variant dark:text-surface-variant mb-10 leading-relaxed">
+                    Designed for both **luxury and durability**, the brown-box combo pack ensures your multipurpose oils remain at their peak potency. Every detail is carefully considered to protect the molecular integrity of the traditional formula while minimizing our environmental footprint.
+                </p>
+<div class="flex gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">recycling</span>
+<span class="text-label-md font-bold">100% Recyclable</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">verified</span>
+<span class="text-label-md font-bold">Luxury Finish</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Heritage Section (Updated About) -->
+<section class="bg-surface-container-highest dark:bg-inverse-surface py-12" id="about">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-16 reveal active">
+<span class="text-label-md font-bold uppercase tracking-[0.3em] text-secondary mb-4 block">100 Years of Wisdom</span>
+<h2 class="font-headline-lg text-headline-lg text-primary dark:text-inverse-primary mb-6 heading-reveal active">A Legacy of Village Healing</h2>
+<p class="text-body-lg text-on-surface-variant dark:text-surface-variant max-w-3xl mx-auto">
+                Peppy Oils is not just a product; it is a **Healthy Lifestyle** choice rooted in a traditional formula used for over **100 years** within old villages and ancient communities.
+            </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="reveal bg-white/50 dark:bg-surface-container p-12 rounded-[3rem] active">
+<p class="text-body-lg text-on-surface-variant dark:text-surface-variant mb-6">
+                    This time-tested blend was once the secret to the legendary physical strength and longevity found in rural communities. We have meticulously preserved this heritage, using slow-extraction methods to honor the original purity of the formula.
+                </p>
+<p class="text-body-lg text-on-surface-variant dark:text-surface-variant">
+                    By bridging ancient botanical wisdom with modern standards, we offer a multipurpose solution that tackles the physical discomforts of the 21st century while remaining true to its 1st-century origins.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-8 reveal active">
+<div class="text-center p-8 glass-card rounded-3xl">
+<p class="text-display-lg text-primary-container dark:text-primary-fixed mb-1 leading-none">100+</p>
+<p class="text-label-md font-bold uppercase text-on-surface-variant">Years History</p>
+</div>
+<div class="text-center p-8 glass-card rounded-3xl">
+<p class="text-display-lg text-primary-container dark:text-primary-fixed mb-1 leading-none">100%</p>
+<p class="text-label-md font-bold uppercase text-on-surface-variant">Traditional</p>
+</div>
+<div class="text-center p-8 glass-card rounded-3xl">
+<p class="text-display-lg text-primary-container dark:text-primary-fixed mb-1 leading-none">0%</p>
+<p class="text-label-md font-bold uppercase text-on-surface-variant">Synthetics</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Showcase -->
+<section class="py-section-gap bg-surface-container-low dark:bg-inverse-surface/30" id="lab-reports"><div class="max-w-container-max mx-auto px-margin-desktop"><div class="text-center mb-16 reveal"><span class="text-label-md font-bold uppercase tracking-[0.3em] text-secondary mb-4 block">Quality Assurance</span><h2 class="font-headline-lg text-headline-lg text-primary dark:text-inverse-primary mb-6 heading-reveal">Scientifically Proven, Traditionally Rooted</h2><p class="text-body-lg text-on-surface-variant dark:text-surface-variant max-w-3xl mx-auto">Our traditional formula is rigorously tested at government-certified laboratories to ensure the highest standards of microbiological safety and chemical purity.</p></div><div class="grid grid-cols-1 md:grid-cols-2 gap-12"><div class="reveal group card"><div class="glass-card p-4 rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl"><div class="overflow-hidden rounded-2xl"><img alt="Microbiological Analysis Report" class="w-full h-auto transition-transform duration-700 group-hover:scale-110 cursor-pointer" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByiLsiIISosPfc1uPfPqHrVrZUJF9PeepCWrfuqsrVnnRI19bwvJA8WQx4Pw-dms27zhmlBGk-p4OC0ZACP9eqs5gRknRMkFtUuPk23HkDix1BR1mmM4U_PZGDyvPKXRsUv3orQ3SJI-R3P1B_bykM5Sb_ezEhZVqxp5zLv9yKfmWPd_YKGBERJcL5NDyfs-PItL31dFJMzuP1-7AEULsq15RM6kHgU0G5-nLVNLfVsMzEfSeGxloaa8DtaGqR6qVggXv92a1n9Kc"/></div><div class="mt-6 text-center"><h4 class="font-bold text-lg text-primary dark:text-inverse-primary">Microbiological Analysis (PCSIR)</h4><p class="text-label-sm text-on-surface-variant dark:text-surface-variant uppercase tracking-widest mt-2">Verified Safety Standards</p></div></div></div><div class="reveal group card"><div class="glass-card p-4 rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl"><div class="overflow-hidden rounded-2xl"><img alt="Chemical Purity Certificate" class="w-full h-auto transition-transform duration-700 group-hover:scale-110 cursor-pointer" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoNML7XDCk2r_qq-T6vIgoXVEJnn9CUkxxy1PsRaE_52zvX3ciBtSx10SZgiyBCQeo8kIT5yVC5PqxMJEaC3auUkH49w01alqeL5LnLecpDtWLIHQ23hMMbSIy0UVplm7FxB_FGm5A1QL-UJSOarqgXQimWBmE6N5hQkXCCs13YA7fh0RRVIf8kdyr1ei2LixdP5od2E6ly7fk_X25eTCAZ90wtKvLnzb881V5Rxu-mf0VCk7PG1_ix0QRd1Oh-ZReIx9i5Z-Xdgs"/></div><div class="mt-6 text-center"><h4 class="font-bold text-lg text-primary dark:text-inverse-primary">Chemical Purity Certificate</h4><p class="text-label-sm text-on-surface-variant dark:text-surface-variant uppercase tracking-widest mt-2">100% Natural Composition</p></div></div></div></div></div></section><section class="py-12" id="shop">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex flex-col lg:flex-row gap-20 items-center">
+<div class="flex-1 reveal perspective-[1000px] active">
+<div class="relative">
+<img alt="The Miracle Combo" class="w-full rounded-[3rem] shadow-2xl product-image" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7ImlcYHiuh3YutbY-YrnHJOiWDoKPrCrsZBvkOnVeGsb-k5V_AToJOZXqisF7QRaF9HousHGGSF5jpC5hev8o3tZdzh1EVOlxS16UvdwouslXCWyyNH4u6NyuRzP9gMyJxXEvI6TDV87cLArsSRRtlr8-WDwbOTdNVFMc5-16uPvzzrox59r9iYvtq390s5pO4s0fMH0coeppfC5KBYxHYiZ69Fhsk3iE2wpc0kKwWSV7R925Tv43my8Ki3rK-36xvHHLCWiM0q4"/>
+<div class="absolute top-10 right-10 bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full text-label-md font-bold shadow-lg">
+                        Bestseller
+                    </div>
+</div>
+</div>
+<div class="flex-1 reveal active">
+<h2 class="font-headline-lg text-headline-lg text-primary dark:text-inverse-primary mb-6 heading-reveal active">The Miracle Combo</h2>
+<p class="text-body-lg text-on-surface-variant dark:text-surface-variant mb-8">
+                    Experience the complete Peppy Oils collection. Our signature brown-box combo pack includes our premium multipurpose massage and drinking oils, specially formulated to energize life and restore natural strength.
+                </p>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-4">
+</li>
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="text-body-md">Traditional 100-year-old formula</span>
+</li>
+<li class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span class="text-body-md">Sustainably sourced ingredients</span>
+</li>
+</ul>
+<div class="p-8 bg-white dark:bg-surface-container rounded-3xl border border-primary/10 mb-10">
+<div class="flex justify-between items-end mb-4">
+<div>
+<p class="text-label-sm uppercase tracking-widest text-secondary font-bold">Limited Offer</p>
+<p class="text-headline-lg font-bold text-primary dark:text-inverse-primary">Rs. 3,500</p>
+</div>
+<span class="text-body-md line-through text-on-surface-variant/60">Rs. 4,500</span>
+</div>
+<p class="text-body-md text-on-surface-variant italic mb-6">"Everything you need for Face, Hair, and Body care in one eco-friendly box."</p>
+<a href="https://script.google.com/macros/s/AKfycbwtygZG_qpXgDTHTKtzmugjH9c7GoiGJbftpsPjIppRz_DdZlZBjhXPdm-C7zQoOWJ4uw/exec"><button class="w-full bg-primary text-on-primary py-4 rounded-full font-label-md hover:opacity-90 transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">add_shopping_cart</span>ORDER NOW </button></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Order CTA Section -->
+<section class="py-section-gap relative">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="bg-primary-container text-on-primary-container rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden reveal active">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+<h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-primary mb-6 heading-reveal active">Ready to Rejuvenate?</h2>
+<p class="text-body-lg text-on-primary-container mb-12 max-w-2xl mx-auto">Get your Miracle Combo Pack today and start your journey to natural wellness. Order via WhatsApp for instant support.</p>
+<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+<a class="w-full md:w-auto bg-[#25D366] text-white px-10 py-5 rounded-full font-bold flex items-center justify-center gap-4 hover:scale-105 transition-transform shadow-xl" href="https://wa.me/923330430363" target="_blank">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+                    Order via WhatsApp
+                </a>
+<div class="text-on-primary">
+<p class="text-label-sm uppercase tracking-widest opacity-60">Call directly</p>
+<p class="text-headline-md font-bold">0333-0430363</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest dark:bg-inverse-surface border-t border-primary/5 dark:border-white/5 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-desktop">
+<div class="col-span-1 md:col-span-1">
+<h2 class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary mb-6">Halal Healing Hub</h2>
+<p class="text-body-md text-on-surface-variant dark:text-surface-variant mb-6">Traditional heritage for modern life. Providing herbal solutions for Face, Hair, and Body care since 2024.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity">social_leaderboard</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity">photo_camera</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-primary dark:text-inverse-primary mb-6">Quick Links</h4>
+<ul class="space-y-4">
+<li class=""><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Shop All</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#about">Our Heritage</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary dark:text-inverse-primary mb-6">Product Support</h4>
+<ul class="space-y-4">
+<li class=""><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#usage">How to Use</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Shipping Info</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Returns &amp; Refunds</a></li>
+<li class=""><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Affiliate Program</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop mt-20 pt-8 border-t border-primary/5">
+<p class="text-body-md text-on-surface-variant dark:text-surface-variant text-center">© 2024 Halal Healing Hub. To order call: 0333-0430363</p>
+</div>
+</footer>
+<a class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center" href="https://wa.me/923330430363" target="_blank">
+<svg class="w-8 h-8 fill-current" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+</a>
+<script>
+    // Oil Particle Animation
+    function createParticles() {
+        const container = document.getElementById('oil-particles');
+        const particleCount = 20;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'oil-particle';
+            
+            const size = Math.random() * 20 + 5;
+            const left = Math.random() * 100;
+            const delay = Math.random() * 5;
+            const duration = Math.random() * 10 + 5;
+            
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${left}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            particle.style.opacity = Math.random() * 0.4;
+            
+            container.appendChild(particle);
+            
+            animateParticle(particle, duration, delay);
+        }
+    }
+
+    function animateParticle(el, duration, delay) {
+        el.animate([
+            { transform: 'translateY(0) scale(1)', opacity: 0.4 },
+            { transform: 'translateY(-100vh) scale(1.5)', opacity: 0 }
+        ], {
+            duration: duration * 1000,
+            delay: delay * 1000,
+            iterations: Infinity,
+            easing: 'ease-in-out'
+        });
+    }
+
+    // Scroll Reveal Intersection Observer
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Heading Reveal Intersection Observer
+    const headingObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.heading-reveal').forEach(el => headingObserver.observe(el));
+
+    // Progress Bar
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    themeToggleBtn.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        themeToggleBtn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+    });
+
+    // Cursor Glow
+    const cursorGlow = document.getElementById('cursor-glow');
+    document.addEventListener('mousemove', (e) => {
+        cursorGlow.style.left = e.clientX + 'px';
+        cursorGlow.style.top = e.clientY + 'px';
+    });
+
+    // Initialize
+    window.addEventListener('DOMContentLoaded', () => {
+        createParticles();
+    });
+</script>
+</body></html>
